@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-bar {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .search-bar:focus {
+            outline: none;
+        }
+
+        .nav-icons span, .nav-icons button {
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .nav-icons button:focus {
+            outline: none;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background-color: #1e1e1e;
+        }
+
+        .container {
+            margin: 80px auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            gap: 2rem;
+            max-width: 1200px;
+         
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .left-div {
+            background-color: white;
+            padding:42px;
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .left-div h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .left-div p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .right-div {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-div img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-top: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        label i {
+            margin-right: 0.5rem;
+            color: #007BFF;
+        }
+
+        input[type="text"], select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+    
+
+input[type="text"]:focus, select:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+.social-icons {
+    display: flex;
+    justify-content: space-evenly; /* Distribute icons evenly */
+    align-items: center;
+    padding: 2rem 0;
+    background-color: #f5f5f5;
+    width: 100%; /* Ensure the container takes up the full width */
+}
+
+.social-icons i {
+    font-size: 2rem;
+    color: #007BFF;
+    transition: color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.social-icons i:hover {
+    color: #0056b3;
+    transform: scale(1.1);
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <input type="text" class="search-bar" placeholder="Search...">🔍
+            <span class="profile-icon">👤</span>
+            <button id="theme-toggle">🌙</button>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="left-div">
+            <h1>Find Your Expected Job</h1>
+            <p>Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
+            <form>
+                <div class="form-group">
+                    <label for="search-keywords"><i class="fas fa-search"></i> Search:</label>
+                    <input type="text" id="search-keywords" name="keywords" placeholder="Search your Keywords" style="width: 80%;">
+                </div>
+                <div class="form-group">
+                    <label for="location"><i class="fas fa-map-marker-alt"></i> Location:</label>
+                    <select id="location" name="location" style="width: 85%;">
+                        <option value="">Select...</option>
+                        <option value="1">Hyderabad</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="job-type"><i class="fas fa-briefcase"></i> Job Type:</label>
+                    <select id="job-type" name="job-type" style="width: 85%;">
+                        <option value="">Select...</option>
+                    </select>
+                </div>
+                <input type="button" value="Search" style="background-color: rgb(40, 185, 40); border: none; width: 100px; height: 30px; border-radius: 20px; color: white; cursor: pointer;">
+            </form>
+        </div>
+        <div class="right-div">
+            <img src="https://jobstack-shreethemes.vercel.app/static/media/woman_working_2.26b4fe242bd386b51ed8fe80be6ff7bb.svg" alt="Job Search" class="job-image">
+        </div>
+    </div>
+    <div class="social-icons">
+        <i class="fab fa-android"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-skype"></i>
+        <i class="fab fa-spotify"></i>
+        <i class="fab fa-telegram"></i>
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
