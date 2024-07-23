@@ -3,44 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect</title>
+    <title>JOB QUEST</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
     <nav>
-        <div class="logo">MyWebsite</div>
+        <div class="logo" style="cursor: pointer;">JOB QUEST</div>
         <ul class="nav-links">
-            <li class="dropdown">
                 <a href="#">Home</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Home Option 1</a></li>
-                    <li><a href="#">Home Option 2</a></li>
-                    <li><a href="#">Home Option 3</a></li>
-                </ul>
-            </li>
             <li class="dropdown">
                 <a href="#">Jobs</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Job Option 1</a></li>
-                    <li><a href="#">Job Option 2</a></li>
-                    <li><a href="#">Job Option 3</a></li>
+                    <li><a href="#">Job Options</a></li>
+                    <li><a href="#">Job Apply</a></li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a href="#">Pages</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Page Option 1</a></li>
-                    <li><a href="#">Page Option 2</a></li>
-                    <li><a href="#">Page Option 3</a></li>
+                    <li><a href="#">About US</a></li>
+                    <li><a href="#">Employers Details</a></li>
+                    <li><a href="#">Candidates Details</a></li>
+                    <li><a href="#">Blog Page</a></li>
                 </ul>
             </li>
             <li><a href="#">Contact</a></li>
         </ul>
         <div class="nav-icons">
-            <input type="text" class="search-bar" placeholder="Search...">🔍
-            <span class="profile-icon">👤</span>
-            <button id="theme-toggle">🌙</button>
+            <div class="group">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+                <input placeholder="Search" type="search" class="input">
+              </div>
+                <span class="profile-icon">👤</span>
+            <button style="border: none; width: 90px; height: 30px; background-color: #093249; color: white; font-size: 14px; border-radius: 20px;"><a href="/signout" style="text-decoration: none; color: white;">Signout</a></button>
         </div>
     </nav>
     
@@ -50,23 +46,34 @@
             <p>Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit excellent applicants over the years.</p>
             <form>
                 <div class="form-group">
-                    <label for="search-keywords"><i class="fas fa-search"></i> Search:</label>
+                    <label for="search-keywords"><i class="fas fa-search" style="color:#093249 ;"></i> Search:</label>
                     <input type="text" id="search-keywords" name="keywords" placeholder="Search your Keywords" style="width: 80%;">
                 </div>
                 <div class="form-group">
-                    <label for="location"><i class="fas fa-map-marker-alt"></i> Location:</label>
+                    <label for="location"><i class="fas fa-map-marker-alt" style="color:#093249 ;"></i> Location:</label>
                     <select id="location" name="location" style="width: 85%;">
                         <option value="">Select...</option>
-                        <option value="1">Hyderabad</option>
+                        <option value="Australia">Australia</option>
+                        <option value="USA">USA</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Sochi">Sochi</option>
+                        <option value="UK">UK</option>
+                        <option value="Queenstown">Queenstown</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="job-type"><i class="fas fa-briefcase"></i> Job Type:</label>
+                    <label for="job-type"><i class="fas fa-briefcase" style="color:#093249 ;"></i> Job Type:</label>
                     <select id="job-type" name="job-type" style="width: 85%;">
                         <option value="">Select...</option>
+                        <option value="HR">HR</option>
+                        <option value="IT and Networking">IT and Networking</option>
+                        <option value="Sales and Marketing">Sales and Marketing</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Accounting">Accounting</option>
+                        <option value="Full-Stack Developer">Full-Stack Developer</option>
                     </select>
                 </div>
-                <input type="button" value="Search" style="background-color: rgb(40, 185, 40); border: none; width: 100px; height: 30px; border-radius: 20px; color: white; cursor: pointer;">
+                <input type="button" value="Search" style="background-color: #093249; border: none; width: 100px; height: 30px; border-radius: 20px; color: white; cursor: pointer;">
             </form>
         </div>
         <div class="right-div">
@@ -137,7 +144,7 @@
                     <li>Our Talented & Experienced Marketing Agency</li>
                     <li>Digital Marketing Solutions for Tomorrow</li>
                 </ul>
-                <button style="border: none; border-radius: 20px; background-color: #25D366; color: white; width: 100px; height: 40px ;">Contact Team</button>
+                <button style="border: none; border-radius: 20px; background-color: #093249; color: white; width: 100px; height: 40px ;">Contact Team</button>
             </div>
         </div>
         <div class="categories-container">
@@ -246,7 +253,7 @@
         <div class="image-container">
             <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Top_8_Group_Discussion_Tips.jpg" alt="Background Image" class="background-image">
             <div class="overlay-content">
-                <h1>Your Content Here</h1>
+                <h1>Get the job that's right for you</h1>
                 <button class="play-button" onclick="openPopup()">Play Video</button>
             </div>
         </div>
@@ -307,7 +314,7 @@
                     <a href="#" class="social-iconsss"><i class="fab fa-spotify"></i></a>
                 </div>
                 <div class="footer-info">
-                    <p>Company Name: Connect</p>
+                    <p>Company Name: JOB QUEST</p>
                     <p>&copy; 2024 Connect. All rights reserved.</p>
                 </div>
             </div>
@@ -334,10 +341,6 @@ window.onclick = function(event) {
         closePopup();
     }
 }
-        document.getElementById('theme-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-        });
         const sliderContainer = document.querySelector('.slider-container');
         const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
@@ -356,6 +359,7 @@ window.onclick = function(event) {
         function updateSlider() {
             sliderContainer.style.transform = `translateX(-${index * 100}%)`;
         }
+    
 
     </script>
 </body>

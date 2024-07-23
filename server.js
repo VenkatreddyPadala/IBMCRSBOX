@@ -57,7 +57,7 @@ app.post("/login", async (req, res) => {
         // Regular user login
         req.session.userLoggedIn = true;
         req.session.userNumber = number;
-        return res.redirect("/success");
+        return res.redirect("/home"); // Redirect to /home
       }
     }
 
@@ -108,10 +108,16 @@ app.get("/signin", (req, res) => {
 app.get("/signup", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "signup.html"));
 });
-
+app.get("/home", (req, res) => {
+  if (req.session.userLoggedIn) {
+    res.sendFile(path.join(__dirname, "public", "home.html")); // Serve home.html
+  } else {
+    res.redirect("/");
+  }
+});
 app.get("/success", (req, res) => {
   if (req.session.userLoggedIn) {
-    res.send("Hello World");
+    res.redirect("/home"); // Redirect to /home
   } else {
     res.redirect("/");
   }
