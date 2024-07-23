@@ -11,9 +11,30 @@
     <nav>
         <div class="logo">MyWebsite</div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Pages</a></li>
+            <li class="dropdown">
+                <a href="#">Home</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Home Option 1</a></li>
+                    <li><a href="#">Home Option 2</a></li>
+                    <li><a href="#">Home Option 3</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Jobs</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Job Option 1</a></li>
+                    <li><a href="#">Job Option 2</a></li>
+                    <li><a href="#">Job Option 3</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Page Option 1</a></li>
+                    <li><a href="#">Page Option 2</a></li>
+                    <li><a href="#">Page Option 3</a></li>
+                </ul>
+            </li>
             <li><a href="#">Contact</a></li>
         </ul>
         <div class="nav-icons">
@@ -22,6 +43,7 @@
             <button id="theme-toggle">🌙</button>
         </div>
     </nav>
+    
     <div class="container">
         <div class="left-div">
             <h1>Find Your Expected Job</h1>
