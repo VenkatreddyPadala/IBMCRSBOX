@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.input {
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+  }
+  .group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+   }
+   
+   .input {
+    width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+   }
+   
+   .input::placeholder {
+    color: #9e9ea7;
+   }
+   
+   .input:focus, input:hover {
+    outline: none;
+    border-color: rgba(234,76,137,0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+   }
+   
+   .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+   }
+   
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(to right, #166a71, #698b5e);
+    color: white;
+    position: relative; /* Ensure dropdowns are positioned correctly */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative; /* Needed for dropdown positioning */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block; /* Ensure clickable area is block-level */
+    padding: 0.5rem;
+}
+
+.nav-links .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0056b3;
+    border-radius: 4px;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    min-width: 150px;
+    z-index: 1000; /* Ensure dropdown is above other elements */
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #004494;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.search-bar:focus {
+    outline: none;
+}
+
+.nav-icons span, .nav-icons button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.nav-icons button:focus {
+    outline: none;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.map-container {
+    height: 100%;
+    width: 100%;
+}
+
+iframe {
+    border: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.message {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    padding: 20px;
+}
+
+.mesimg {
+    margin-left: 20px; /* Space between image and other content */
+}
+
+.mesimg img {
+    width: 600px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-left:100px;
+}
+.mesform {
+    width: 70%; /* Adjust width as needed */
+}
+
+.mesform h2 {
+    margin-top: 0;
+}
+
+.mesform form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mesform label {
+    font-weight: bold;
+}
+
+.mesform input, .mesform textarea {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.mesform button {
+    width: 50%;
+    padding: 10px 20px;
+    background-color: #093249;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.mesform button:hover {
+    background-color: #0056b3;
+}
+.WorkMethods {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    }
+    
+    .cards {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 calc(33% - 40px);
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.2s ease;
+    }
+    
+    .cards img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    }
+    
+    .cards p {
+    margin: 10px 0;
+    }
+    
+    .cards button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    }
+    
+    .cards button:hover {
+    background-color: #555;
+    }
+    
+    .cards:hover {
+    transform: scale(1.05);
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-nav ul li {
+        margin: 0 15px;
+    }
+    
+    .footer-nav ul li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .footer-nav ul li a:hover {
+        color: #1DB954;
+    }
+    
+    .social-iconss {
+        margin: 20px 0;
+    }
+    
+    .social-iconss .social-iconsss {
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        transition: color 0.3s;
+    }
+    
+    .social-iconss .social-iconsss:hover {
+        color: #1DB954;
+    }
+    
+    .footer-info p {
+        margin: 5px 0;
+        color: #ccc;
+    }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo" style="cursor: pointer;">JOB QUEST</div>
+        <ul class="nav-links">
+                <a href="#">Home</a>
+            <li class="dropdown">
+                <a href="#">Jobs</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Job Options</a></li>
+                    <li><a href="#">Job Apply</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">About US</a></li>
+                    <li><a href="#">Employers Details</a></li>
+                    <li><a href="#">Candidates Details</a></li>
+                    <li><a href="#">Blog Page</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <div class="group">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+                <input placeholder="Search" type="search" class="input">
+              </div>
+                <span class="profile-icon">👤</span>
+            <button style="border: none; width: 90px; height: 30px; background-color: #093249; color: white; font-size: 14px; border-radius: 20px;"><a href="/signout" style="text-decoration: none; color: white;">Signout</a></button>
+        </div>
+    </nav>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.088417424432!2d78.16364247463048!3d17.550976598072953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf11b33d2df9d%3A0xccb71d58d5bf59ff!2sGITAM%20(Deemed%20to%20be)%20UNIVERSITY!5e0!3m2!1sen!2sin!4v1721747492394!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="message">
+        <div class="mesimg">
+            <img src="https://jobstack-shreethemes.vercel.app/static/media/contact.fa1dcec179ab187ef0877382779d71df.svg" alt="Contact Image">
+        </div>
+        <div class="mesform">
+            <h2>Get in touch!</h2>
+            <form action="#" method="POST">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Your Question:</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Your Comment:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+        <div class="WorkMethods">
+            <div class="cards">
+                
+                <i class="fa-solid fa-phone fa-3x"></i>
+                <p>Phone</p>
+                <p>The phrasal sequence of the is now so that many campaign and benefit<br>+152 534-468-854</p>
+            </div>
+            <div class="cards">
+                <i class="fa-solid fa-envelope fa-3x"></i>
+                <p>Complete your Profile</p>
+                <p>The phrasal sequence of the is now so that many campaign and benefit<br>jobquest@gmail.com</p>
+            </div>
+            <div class="cards">
+                <i class="fa-solid fa-location-dot fa-3x"></i>
+                <p>Apply Job or Hire</p>
+                <p>C/54 Northwest Freeway, Suite 558,
+                    Houston, USA 485<br>View on google map</p>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Create a job</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="social-iconss">
+                    <a href="#" class="social-iconsss"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-iconsss"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-iconsss"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-iconsss"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-iconsss"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-iconsss"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-iconsss"><i class="fab fa-spotify"></i></a>
+                </div>
+                <div class="footer-info">
+                    <p>Company Name: JOB QUEST</p>
+                    <p>&copy; 2024 Connect. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>
