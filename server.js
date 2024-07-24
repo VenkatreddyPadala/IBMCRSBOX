@@ -136,6 +136,13 @@ app.get("/about-us", (req, res) => {
     res.redirect("/");
   }
 });
+app.get("/employee", (req, res) => {
+  if (req.session.userLoggedIn) {
+    res.sendFile(path.join(__dirname, "public", "employee.html")); // Serve home.html
+  } else {
+    res.redirect("/");
+  }
+});
 app.get("/profile", async (req, res) => {
   if (req.session.userLoggedIn) {
     try {
