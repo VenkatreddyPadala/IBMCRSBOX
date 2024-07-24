@@ -106,7 +106,7 @@ app.get("/signin", (req, res) => {
 });
 
 app.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "signup.html"));
+  res.sendFile(path.join(__dirname, "public", "loginpage.html"));
 });
 app.get("/home", (req, res) => {
   if (req.session.userLoggedIn) {
@@ -122,6 +122,35 @@ app.get("/success", (req, res) => {
     res.redirect("/");
   }
 });
+app.get("/contact", (req, res) => {
+  if (req.session.userLoggedIn) {
+    res.sendFile(path.join(__dirname, "public", "contact.html")); // Serve home.html
+  } else {
+    res.redirect("/");
+  }
+});
+app.get("/profile", async (req, res) => {
+  if (req.session.userLoggedIn) {
+    try {
+      console.log("Fetching profile for user number:", req.session.userNumber); // Logging user number
+      const user = await User.findOne({ number: req.session.userNumber });
+
+      if (user) {
+        console.log("User found:", user); // Logging user data
+        res.render("profile", { user });
+      } else {
+        console.log("User not found for number:", req.session.userNumber); // Logging not found case
+        res.send("User not found. <a href='/'>Go back</a>");
+      }
+    } catch (err) {
+      console.error("Error fetching user profile:", err.message); // Logging error
+      res.send("An unexpected error occurred. Please try again later. <a href='/'>Go back</a>");
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
