@@ -171,6 +171,13 @@ app.get("/job-grid", (req, res) => {
     res.redirect("/");
   }
 });
+app.get("/job-details", (req, res) => {
+  if (req.session.userLoggedIn) {
+    res.sendFile(path.join(__dirname, "public", "jobdetails.html")); // Serve home.html
+  } else {
+    res.redirect("/");
+  }
+});
 app.get("/profile", async (req, res) => {
   if (req.session.userLoggedIn) {
     try {

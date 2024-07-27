@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
+}
+
+.clip-box {
+  width: 100vw;
+  height: 400px;
+  background: linear-gradient(to right, #166a71, #698b5e);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0 0);
+  position: relative;
+  color: white;
+}
+
+.clip-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  background-color:transparent; /* Optional: to enhance text readability */
+  border-radius: 10px;
+}
+
+.input {
+        font-size: 0.9rem;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        padding-inline: 0.5em;
+        padding-block: 0.7em;
+        border: none;
+      }
+      .group {
+        display: flex;
+        line-height: 28px;
+        align-items: center;
+        position: relative;
+        max-width: 190px;
+       }
+       
+       .input {
+        width: 100%;
+        height: 40px;
+        line-height: 28px;
+        padding: 0 1rem;
+        padding-left: 2.5rem;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        outline: none;
+        background-color: #f3f3f4;
+        color: #0d0c22;
+        transition: .3s ease;
+       }
+       
+       .input::placeholder {
+        color: #9e9ea7;
+       }
+       
+       .input:focus, input:hover {
+        outline: none;
+        border-color: rgba(234,76,137,0.4);
+        background-color: #fff;
+        box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+       }
+       
+       .icon {
+        position: absolute;
+        left: 1rem;
+        fill: #9e9ea7;
+        width: 1rem;
+        height: 1rem;
+       }
+       
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: transparent;
+        color: white;
+        position: relative; /* Ensure dropdowns are positioned correctly */
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav-links li {
+        position: relative; /* Needed for dropdown positioning */
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        display: block; /* Ensure clickable area is block-level */
+        padding: 0.5rem;
+    }
+    
+    .nav-links .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #0056b3;
+        border-radius: 4px;
+        padding: 0;
+        list-style: none;
+        margin: 0;
+        min-width: 150px;
+        z-index: 1000; /* Ensure dropdown is above other elements */
+    }
+    
+    .dropdown-menu li {
+        padding: 0;
+    }
+    
+    .dropdown-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem;
+        display: block;
+    }
+    
+    .dropdown-menu a:hover {
+        background-color: #004494;
+    }
+    
+    .nav-icons {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .p {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+    
+    .search-bar:focus {
+        outline: none;
+    }
+    
+    .nav-icons span, .nav-icons button {
+        cursor: pointer;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+    }
+    
+    .nav-icons button:focus {
+        outline: none;
+    }
+.container-first {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.main-content {
+  width: 80%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  gap: 20px;
+}
+
+.job-info, .job-desc {
+  flex: 1;
+}
+
+.job-desc {
+  width: 65%;  /* Adjust to fit next to the job-info div */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #093249;
+  margin-bottom: 10px;
+}
+
+.job-info ul, .job-desc ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.job-info ul li, .job-desc ul li {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.job-info ul li b {
+  color: #333;
+}
+
+.job-desc p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.apply-button {
+  display: inline-block;
+  background-color: #093249;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.apply-button:hover {
+  background-color: #0b4a63;
+}
+
+/* Related Vacancies Styles */
+.Explore {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.head {
+  font-size: 2rem;
+  color: #093249;
+}
+
+.line {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.job-card {
+  background-color: #fff;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.job-card .top-section h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.job-card .top-section p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.job-card .bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job-card .bottom-section p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.full-time {
+  background-color: #4CAF50;
+}
+
+.part-time {
+  background-color: #FF9800;
+}
+
+.freelance {
+  background-color: #9C27B0;
+}
+
+.info-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-box {
+  max-width: 60%;
+}
+
+.info-box h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.info-box p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-apply {
+  background-color: #007bff;
+}
+
+.btn-learn {
+  background-color: #28a745;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-nav ul li {
+  margin: 0 15px;
+}
+
+.footer-nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-nav ul li a:hover {
+  color: #1DB954;
+}
+
+.social-iconss {
+  margin: 20px 0;
+}
+
+.social-iconss .social-iconsss {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.social-iconss .social-iconsss:hover {
+  color: #1DB954;
+}
+
+.footer-info p {
+  margin: 5px 0;
+  color: #ccc;
+}
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+    </style>
+    <title>Job Listing</title>
+</head>
+<body> 
+    <div class="clip-box">
+        <nav>
+          <div class="logo" style="cursor: pointer;"><a href="/home" style="text-decoration: none; color: white;">JOB QUEST</a></div>
+          <ul class="nav-links">
+            <li><a href="/home">Home</a></li>
+            <li class="dropdown">
+              <a href="#">Jobs</a>
+              <ul class="dropdown-menu">
+                <li><a href="/job-grid">Job Options</a></li>
+                <li><a href="/job-apply">Job Apply</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Pages</a>
+              <ul class="dropdown-menu">
+                <li><a href="/about-us">About US</a></li>
+                <li><a href="/employee">Employers Details</a></li>
+                <li><a href="/candidate">Candidates Details</a></li>
+                <li><a href="/blog">Blog Page</a></li>
+              </ul>
+            </li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+          <div class="nav-icons">
+            <div class="group">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <g>
+                  <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                </g>
+              </svg>
+              <input placeholder="Search" type="search" class="input">
+            </div>
+            <span class="profile-icon"><a href="/profile" style="text-decoration: none;">👤</a></span>
+            <button style="border: none; width: 90px; height: 30px; background-color: #093249; color: white; font-size: 14px; border-radius: 20px;"><a href="/signout" style="text-decoration: none; color: white;">Signout</a></button>
+          </div>
+        </nav>
+        <div class="clip-text">Job Details</div>
+    </div>
+    <div class="container-first">
+        <div class="main-content">
+            <div class="job-desc">
+                <h3><i class="fab fa-facebook fa-3x" style="color: #3b5998;"></i>  Job Description:</h3>
+                <p>One disadvantage of Lorum Ipsum is that in Latin certain letters appear more frequently than others - which creates a distinct visual impression. Moreover, in Latin only words at the beginning of sentences are capitalized.</p>
+                <p>This means that Lorem Ipsum cannot accurately represent, for example, German, in which all nouns are capitalized. Thus, Lorem Ipsum has only limited suitability as a visual filler for German texts. If the fill text is intended to illustrate the characteristics of different typefaces.</p>
+                <p>It sometimes makes sense to select texts containing the various letters and symbols specific to the output language.</p>
+                <h3>Responsibilities and Duties:</h3>
+                <p>It sometimes makes sense to select texts containing the various letters and symbols specific to the output language.</p>
+                <ul>
+                    <li>
+                        <div>Participate in requirements analysis</div>
+                    </li>
+                    <li>
+                        <div>Write clean, scalable code using C# and .NET frameworks</div>
+                    </li>
+                    <li>
+                        <div>Test and deploy applications and systems</div>
+                    </li>
+                    <li>
+                        <div>Revise, update, refactor and debug code</div>
+                    </li>
+                    <li>
+                        <div>Improve existing software</div>
+                    </li>
+                </ul>
+                <h3>Required Experience, Skills and Qualifications:</h3>
+                <p class="text">It sometimes makes sense to select texts containing the various letters and symbols specific to the output language.</p>
+                <ul>
+                    <li>
+                        <div>Proven experience as a .NET Developer or Application Developer</div>
+                    </li>
+                    <li>
+                        <div>good understanding of SQL and Relational Databases, specifically Microsoft SQL Server.</div>
+                    </li>
+                    <li>
+                        <div>Experience designing, developing and creating RESTful web services and APIs</div>
+                    </li>
+                    <li>
+                        <div>Basic know how of Agile process and practices</div>
+                    </li>
+                    <li>
+                        <div>Good understanding of object-oriented programming.</div>
+                    </li>
+                </ul>
+                <button class="apply-button" onclick="openModal()">Apply Now</button>
+            </div>
+        </div>
+    </div>
+    <div class="Explore">
+        <h1 class="head">Related Vacancies</h1>
+        <p class="line" style="color: #666;">
+            Search all the open positions on the web. Get your own personalized salary
+            estimate. Read reviews on over 30000+ companies worldwide.</p>
+        </div>
+            <div class="container">
+                <div class="job-card">
+                    <div class="top-section">
+                        <a href="/job-details" style="text-decoration: none; color: black;"><h3>Software Engineer</h3></a>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> New York, NY</p>
+                        <p class="type"><i class="fas fa-clock"></i> Full-Time</p>
+                        <p class="salary"><i class="fas fa-dollar-sign"></i> $90,000 - $110,000</p>
+                        <p class="date"><i class="fas fa-calendar-alt"></i> Posted 2 days ago</p>
+                    </div>
+                    <div class="bottom-section">
+                        <i class="fab fa-facebook fa-3x" style="color: #3b5998;"></i>
+                        <p>Facebook</p>
+                        <div class="badge full-time">Full-Time</div>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="top-section">
+                        <a href="/job-details" style="text-decoration: none; color: black;"><h3>Marketing Specialist</h3></a>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+                        <p class="type"><i class="fas fa-clock"></i> Part-Time</p>
+                        <p class="salary"><i class="fas fa-dollar-sign"></i> $50,000 - $70,000</p>
+                        <p class="date"><i class="fas fa-calendar-alt"></i> Posted 1 week ago</p>
+                    </div>
+                    <div class="bottom-section">
+                        <i class="fab fa-spotify fa-3x" style="color: #1DB954;"></i>
+                        <p>&nbsp; Spotify</p>
+                        <div class="badge part-time">&nbsp; Part-Time</div>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="top-section">
+                        <a href="/job-details" style="text-decoration: none; color: black;"><h3>Graphic Designer</h3></a>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                        <p class="type"><i class="fas fa-clock"></i> Freelance</p>
+                        <p class="salary"><i class="fas fa-dollar-sign"></i> $30/hr</p>
+                        <p class="date"><i class="fas fa-calendar-alt"></i> Posted 3 days ago</p>
+                    </div>
+                    <div class="bottom-section">
+                        <i class="fab fa-linkedin fa-3x" style="color: #0077B5;"></i>
+                        <p>&nbsp; Linkedin</p>
+                        <div class="badge freelance"> &nbsp; Freelance</div>
+                    </div>
+                </div>
+            </div>
+        <!-- Job Info Modal -->
+<div id="jobInfoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeJobInfoModal()">
+            <i class="fas fa-times"></i>
+        </span>
+        <div class="job-info" style="display: flex; justify-content: center; flex-direction: column; ">
+            <h3><i class="fas fa-briefcase"></i> Job Information:</h3>
+            <p><i class="fas fa-building"></i> Company: Facebook</p>
+            <p><i class="fas fa-map-marker-alt"></i> Location: New York, NY</p>
+            <p><i class="fas fa-briefcase"></i> Type: Full-Time</p>
+            <p><i class="fas fa-dollar-sign"></i> Salary: $90,000 - $110,000</p>
+            <p><i class="fas fa-calendar-day"></i> Posted: 2 days ago</p>
+        </div>
+    </div>
+</div>
+
+    <div class="info-container">
+        <div class="info-box">
+          <h2>Explore a Job Now!</h2>
+          <p>Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 30,000+ companies worldwide.</p>
+        </div>
+        <div class="buttons">
+          <a href="/job-grid" class="btn btn-apply">Apply Now</a>
+          <a href="/about-us" class="btn btn-learn">Learn More</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">Create a job</a></li>
+                    <li><a href="/about-us">About us</a></li>
+                    <li><a href="/contact">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="social-iconss">
+                <a href="#" class="social-iconsss"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-iconsss"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-iconsss"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-iconsss"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-iconsss"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-iconsss"><i class="fab fa-google"></i></a>
+                <a href="#" class="social-iconsss"><i class="fab fa-spotify"></i></a>
+            </div>
+            <div class="footer-info">
+                <p>Company Name: JOB QUEST</p>
+                <p>&copy; 2024 Connect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function openModal() {
+  document.getElementById("jobInfoModal").style.display = "block";
+}
+
+function closeJobInfoModal() {
+  document.getElementById("jobInfoModal").style.display = "none";
+}
+
+// Close the modal when the user clicks anywhere outside of it
+window.onclick = function(event) {
+  var modal = document.getElementById("jobInfoModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+    </script>
+</body>
+</html>

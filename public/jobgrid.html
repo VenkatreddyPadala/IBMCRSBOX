@@ -284,12 +284,36 @@
             margin: 5px 0;
             font-size: 0.9em;
         }
+        .job-card .bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-        .job-card .badge.part-time {
-            background-color: #fcf8e3;
-            color: #8a6d3b;
-        }
+        .job-card .bottom-section p {
+  font-size: 0.9rem;
+  color: #333;
+}
+        .badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
 
+.full-time {
+  background-color: #4CAF50;
+}
+
+.part-time {
+  background-color: #FF9800;
+}
+
+.freelance {
+  background-color: #9C27B0;
+}
         .footer {
             background-color: #333;
             color: white;
@@ -582,7 +606,7 @@ select option:disabled {
     <div class="container">
         <div class="job-card">
             <div class="top-section">
-                <h3>Software Engineer</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Software Engineer</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> New York, NY</p>
                 <p class="type"><i class="fas fa-clock"></i> Full-Time</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $90,000 - $110,000</p>
@@ -596,7 +620,7 @@ select option:disabled {
         </div>
         <div class="job-card">
             <div class="top-section">
-                <h3>Marketing Specialist</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Marketing Specialist</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
                 <p class="type"><i class="fas fa-clock"></i> Part-Time</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $50,000 - $70,000</p>
@@ -610,7 +634,7 @@ select option:disabled {
         </div>
         <div class="job-card">
             <div class="top-section">
-                <h3>Graphic Designer</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Graphic Designer</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> Remote</p>
                 <p class="type"><i class="fas fa-clock"></i> Freelance</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $30/hr</p>
@@ -624,7 +648,7 @@ select option:disabled {
         </div>
         <div class="job-card">
             <div class="top-section">
-                <h3>Software Engineer</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Software Engineer</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> New York, NY</p>
                 <p class="type"><i class="fas fa-clock"></i> Full-Time</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $90,000 - $110,000</p>
@@ -638,7 +662,7 @@ select option:disabled {
         </div>
         <div class="job-card">
             <div class="top-section">
-                <h3>Marketing Specialist</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Marketing Specialist</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
                 <p class="type"><i class="fas fa-clock"></i> Part-Time</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $50,000 - $70,000</p>
@@ -652,7 +676,7 @@ select option:disabled {
         </div>
         <div class="job-card">
             <div class="top-section">
-                <h3>Graphic Designer</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Graphic Designer</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> Remote</p>
                 <p class="type"><i class="fas fa-clock"></i> Freelance</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $30/hr</p>
@@ -666,7 +690,7 @@ select option:disabled {
         </div>
         <div class="job-card">
             <div class="top-section">
-                <h3>Software Engineer</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Software Engineer</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> New York, NY</p>
                 <p class="type"><i class="fas fa-clock"></i> Full-Time</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $90,000 - $110,000</p>
@@ -680,7 +704,7 @@ select option:disabled {
         </div>
         <div class="job-card">
             <div class="top-section">
-                <h3>Marketing Specialist</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Marketing Specialist</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
                 <p class="type"><i class="fas fa-clock"></i> Part-Time</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $50,000 - $70,000</p>
@@ -694,7 +718,7 @@ select option:disabled {
         </div>
         <div class="job-card">
             <div class="top-section">
-                <h3>Graphic Designer</h3>
+                <a href="/job-details" style="text-decoration: none; color: black;"><h3>Graphic Designer</h3></a>
                 <p class="location"><i class="fas fa-map-marker-alt"></i> Remote</p>
                 <p class="type"><i class="fas fa-clock"></i> Freelance</p>
                 <p class="salary"><i class="fas fa-dollar-sign"></i> $30/hr</p>
@@ -741,8 +765,8 @@ select option:disabled {
           <p>Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 30,000+ companies worldwide.</p>
         </div>
         <div class="buttons">
-          <a href="#" class="btn btn-apply">Apply Now</a>
-          <a href="#" class="btn btn-learn">Learn More</a>
+          <a href="/job-grid" class="btn btn-apply">Apply Now</a>
+          <a href="/about-us" class="btn btn-learn">Learn More</a>
         </div>
       </div>
 
