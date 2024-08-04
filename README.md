@@ -33,7 +33,7 @@
   <h3>Steps</h3>
     <ol>
         <li><strong>Clone the Repository</strong>
-            <pre><code>git clone https://github.com/your-username/job-portal.git
+            <pre><code>git clone https://github.com/VenkatreddyPadala/IBMCRSBOX.git
 cd job-portal</code></pre>
         </li>
         <li><strong>Install Dependencies</strong>
